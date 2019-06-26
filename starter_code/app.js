@@ -24,14 +24,35 @@ app.get('/', (req, res, next) => {
 
 // Route "/beers" (http:/localhost:3000/beers)
 app.get('/beers', (req, res, next) => {
+  punkAPI
+  .getBeers()
+  .then(beers => {
     // Render the view "/view/beers.hbs"
-  res.render('beers');
+      res.render('beers', {
+        beers: beers
+      });
+  })
+  .catch(error => {
+    console.log(error);
+    res.render('error')
+  });
 });
 
 // Route "/random-beer" (http:/localhost:3000/random-beer)
 app.get('/random-beer', (req, res, next) => {
-    // Render the view "/view/random-beer.hbs"
-  res.render('random-beer');
+  punkAPI
+    .getRandom()
+    .then(beersFromApi => {
+      // beersFromApi is an array with 1 element (I know it is weird)
+      // Render the view "/view/random-beer.hbs"
+      res.render("random-beer", {
+        beer: beersFromApi[0]
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      res.render('error')
+    });
 });
 
 

@@ -17,6 +17,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh; 
+  background-color: #f7f9f9;
 }
 
 nav {
@@ -40,6 +41,9 @@ footer {
 
 main {
   padding: 10px;
+  /* With the bg-color I notice that my solution is wrong */
+  /* So I move the bg-color to the <body> :) */
+  /* background-color: #f7f9f9; */
 }
 
 .index-container {
@@ -65,4 +69,25 @@ main {
   border-radius: 4px;
   border: none;
   box-shadow: 0px 0px 5px 0px #0A2C42;
+}
+
+.informations-container {
+  display: flex;
+  flex-wrap: wrap;
+  /*check what else there is inside here*/
+}
+
+.beer-information {
+  max-width: 200px;
+  padding: 40px;
+}
+.beer-information__name {}
+.beer-information__tagline {
+  color: rgba(145, 145, 145, 0.481);
+}
+.beer-information__description {}
+.beer-information__image {
+  height: 80px;
+  margin: auto;
+  display: block;
 }
